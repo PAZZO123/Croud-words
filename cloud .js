@@ -1,7 +1,6 @@
 const paragraph = document.getElementById('myParagraph');
 const text = paragraph.innerText;
 let textArr = text.replaceAll(',', '').replaceAll('.', '').replaceAll(':', '').replaceAll(';', '').replaceAll('\n',' ').split(' ')
-//console.log(textArr);
 let cloud = {};
 
 for(let word of textArr){
