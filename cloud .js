@@ -12,8 +12,8 @@ for(let word of textArr){
 
 //console.log(cloud);
 
-let sortedArr = Object.entries(cloud).sort((a,b) => b[1] - a[1]).slice(0, 12);
-let target = [...sortedArr.map(a => a[0])]
+let target = Object.keys(cloud).sort((a,b) => b.value - a.value).slice(0, 12);
+//let target = [...sortedArr.map(a => a[0])]
 
 console.log(target)
 const container = document.getElementById('myWordCloud')
