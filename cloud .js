@@ -22,4 +22,4 @@ for(let word of target){
 }
 
 
-console.log("Exercise 1 - Word Cloud");
+//console.log("Exercise 1 - Word Cloud");
