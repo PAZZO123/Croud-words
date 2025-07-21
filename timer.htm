@@ -30,6 +30,23 @@ let sub=document.getElementById('sub')
 sub.addEventListener('click',function(){
     p.textContent=Number(p.textContent)-1
 })
+let start=document.getElementById('start')
+ let interval=null
+start.addEventListener('click', function(){
+   
+    if(start.textContent==='START'){
+start.innerHTML='STOP'
+//alert('clicked')
+let current=Number(p.textContent)
+interval=setInterval(function(){
+p.textContent=current+'S'
+current--
+},1000)}
+else if (start.textContent==='STOP'){
+clearInterval(interval)
+}
+
+})
     </script>
 </body>
 </html>
