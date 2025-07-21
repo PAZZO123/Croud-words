@@ -1,60 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Timer App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    #container {
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    button {
+      font-size: 1.5em;
+      padding: 10px;
+      box-shadow: 2px 2px 4px gray;
+    }
+
+    #value {
+      width: 100px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      border: 2px solid black;
+      box-shadow: 2px 2px 5px black;
+    }
+
+    #controls {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div style="width:300px; flex:1; display:flex; justify-content:space-between; padding:10px;">
-        <div  ><button id="sub" style="display:flex; max-width: 40Px; height:30px; font-size:2em;box-shadow:2px 2px 2px 2px black ; justify-content:center; text-align:center; ">-</button></div>
-        <div id="value" style="max-width: 200px; height:100px; box-shadow:2px 3px 2px 3px black "><p id="" style=" font-size:2em; ">78</p></div>
-        <div><button id="add" style="display:flex; max-width: 40Px; height:30px; font-size:2em;box-shadow:2px 2px 2px 2px black ; justify-content:center; text-align:center; ">+</button>
-        </div>
-    </div>
-    <div> <button id="reset">RESET</button>
-    <button id="start">START</button></div>
-    <script>
-let reset=document.getElementById('reset')
-let p=document.querySelector('p')
+  <div id="container">
+    <button id="sub">−</button>
+    <div id="value"><span id="time">0</span>s</div>
+    <button id="add">+</button>
+  </div>
 
-reset.addEventListener('click',function(){
-p.innerHTML=0
-alert('clicked')
-})
-let add=document.getElementById('add')
-add.addEventListener('click',function(){
-    p.textContent=Number(p.textContent)+1
-})
-let sub=document.getElementById('sub')
-sub.addEventListener('click',function(){
-    p.textContent=Number(p.textContent)-1
-})
-let start=document.getElementById('start')
- let interval=null
-start.addEventListener('click', function(){
-   
-    if(start.textContent==='START'){
-start.innerHTML='STOP'
-start.style.backgroundColor='red'
-//alert('clicked')
-let current=Number(p.textContent)
-interval=setInterval(function(){
-p.textContent=current+'S'
-current--
-if(current<0){
-    clearInterval(interval)
-    start.innerHTML='START'
-    start.style.backgroundColor='green'
-}
-},1000)}
-else if (start.textContent==='STOP'){
-clearInterval(interval)
-start.innerHTML='START'
-start.style.backgroundColor='green'
-}
+  <div id="controls">
+    <button id="reset">Reset</button>
+    <button id="start">Start</button>
+  </div>
 
-})
-    </script>
+  <script>
+    let timeDisplay = document.getElementById("time");
+    let addBtn = document.getElementById("add");
+    let subBtn = document.getElementById("sub");
+    let resetBtn = document.getElementById("reset");
+    let startBtn = document.getElementById("start");
+
+    let interval = null;
+    let time = 0;
+
+    function updateDisplay() {
+      timeDisplay.textContent = time;
+    }
+
+    function toggleControls(disabled) {
+      addBtn.disabled = disabled;
+      subBtn.disabled = disabled;
+      resetBtn.disabled = disabled;
+    }
+
+    addBtn.addEventListener("click", () => {
+      time++;
+      updateDisplay();
+    });
+
+    subBtn.addEventListener("click", () => {
+      if (time > 0) {
+        time--;
+        updateDisplay();
+      }
+    });
+
+    resetBtn.addEventListener("click", () => {
+      time = 0;
+      updateDisplay();
+    });
+
+    startBtn.addEventListener("click", () => {
+      if (startBtn.textContent === "Start") {
+        if (time <= 0) return;
+
+        startBtn.textContent = "Stop";
+        startBtn.style.backgroundColor = "red";
+        toggleControls(true);
+
+        interval = setInterval(() => {
+          if (time > 0) {
+            time--;
+            updateDisplay();
+          } else {
+            clearInterval(interval);
+            interval = null;
+            startBtn.textContent = "Start";
+            startBtn.style.backgroundColor = "";
+            toggleControls(false);
+          }
+        }, 1000);
+      } else {
+        clearInterval(interval);
+        interval = null;
+        startBtn.textContent = "Start";
+        startBtn.style.backgroundColor = "";
+        toggleControls(false);
+      }
+    });
+
+    updateDisplay();
+  </script>
 </body>
 </html>
