@@ -1,0 +1,74 @@
+#id1{
+    font-size: 64px;
+    color: blue;
+}
+#id2{
+    font-size: 60px;
+    color: yellow;
+    display: inline-block;
+    transform: rotate(55deg);
+}
+#id3{
+    font-size: 56px;
+    color: red;
+    display: inline-block;
+    transform: rotate(120deg);
+}
+#id4{
+    font-size: 52px;
+    color: green;
+    display: inline-block;
+    transform: rotate(90deg);
+}
+#id5{
+    font-size: 48px;
+    color: indigo;
+    display: inline-block;
+    transform: rotate(180deg);
+}
+#id6{
+    font-size: 44px;
+    color: orange;
+    display: inline-block;
+    transform: rotate(90deg);
+}
+#id7{
+    font-size: 40px;
+    color: rgb(15, 222, 53);
+    display: inline-block;
+    transform: rotate(150deg);
+}
+#id8{
+    font-size: 36px;
+    color: maroon;
+    display: inline-block;
+    transform: rotate(90deg);
+}
+#id9{
+    font-size: 32px;
+    color: magenta;
+    display: inline-block;
+    transform: rotate(180deg);
+}
+#id10{
+    font-size: 28px;
+    color: violet;
+    display: inline-block;
+    transform: rotate(90deg);
+}
+#id11{
+    font-size: 24px;
+    color: skyblue;
+    display: inline-block;
+    transform: rotate(180deg);
+}
+#id12{
+    font-size: 20px;
+    color: black;
+    display: inline-block;
+    transform: rotate(100deg);
+}
+
+span{
+    padding: 10px;
+}
