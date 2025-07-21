@@ -7,12 +7,29 @@
 </head>
 <body>
     <div style="width:300px; flex:1; display:flex; justify-content:space-between; padding:10px;">
-        <div  ><button style="display:flex; max-width: 40Px; height:30px; font-size:2em;box-shadow:2px 2px 2px 2px black ; justify-content:center; text-align:center; ">-</button></div>
-        <div style="max-width: 200px; height:100px; font-size:7em;box-shadow:2px 3px 2px 3px black ">78</div>
-        <div><button style="display:flex; max-width: 40Px; height:30px; font-size:2em;box-shadow:2px 2px 2px 2px black ; justify-content:center; text-align:center; ">+</button>
+        <div  ><button id="sub" style="display:flex; max-width: 40Px; height:30px; font-size:2em;box-shadow:2px 2px 2px 2px black ; justify-content:center; text-align:center; ">-</button></div>
+        <div id="value" style="max-width: 200px; height:100px; box-shadow:2px 3px 2px 3px black "><p id="" style=" font-size:2em; ">78</p></div>
+        <div><button id="add" style="display:flex; max-width: 40Px; height:30px; font-size:2em;box-shadow:2px 2px 2px 2px black ; justify-content:center; text-align:center; ">+</button>
         </div>
     </div>
-    <div> <button>RESET</button>
-    <button>START</button></div>
+    <div> <button id="reset">RESET</button>
+    <button id="start">START</button></div>
+    <script>
+let reset=document.getElementById('reset')
+let p=document.querySelector('p')
+
+reset.addEventListener('click',function(){
+p.innerHTML=0
+alert('clicked')
+})
+let add=document.getElementById('add')
+add.addEventListener('click',function(){
+    p.textContent=Number(p.textContent)+1
+})
+let sub=document.getElementById('sub')
+sub.addEventListener('click',function(){
+    p.textContent=Number(p.textContent)-1
+})
+    </script>
 </body>
 </html>
