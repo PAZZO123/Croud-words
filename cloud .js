@@ -8,8 +8,6 @@ for(let word of textArr){
 }
 
 
-//console.log(cloud);
-
 let target = Object.keys(cloud).sort((a,b) => b.value - a.value).slice(0, 12);
 //let target = [...sortedArr.map(a => a[0])]
 
