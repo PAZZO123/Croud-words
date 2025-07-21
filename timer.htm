@@ -36,14 +36,22 @@ start.addEventListener('click', function(){
    
     if(start.textContent==='START'){
 start.innerHTML='STOP'
+start.style.backgroundColor='red'
 //alert('clicked')
 let current=Number(p.textContent)
 interval=setInterval(function(){
 p.textContent=current+'S'
 current--
+if(current<0){
+    clearInterval(interval)
+    start.innerHTML='START'
+    start.style.backgroundColor='green'
+}
 },1000)}
 else if (start.textContent==='STOP'){
 clearInterval(interval)
+start.innerHTML='START'
+start.style.backgroundColor='green'
 }
 
 })
