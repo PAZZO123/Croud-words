@@ -24,8 +24,8 @@
     }
 
     #value {
-      width: 100px;
-      height: 60px;
+      width: 200px;
+      height: 70px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -36,7 +36,7 @@
 
     #controls {
       display: flex;
-      gap: 10px;
+      gap: 100px;
     }
   </style>
 </head>
@@ -62,11 +62,11 @@
     let interval = null;
     let time = 0;
 
-    function updateDisplay() {
+    function Display() {
       timeDisplay.textContent = time;
     }
 
-    function toggleControls(disabled) {
+    function Controls(disabled) {
       addBtn.disabled = disabled;
       subBtn.disabled = disabled;
       resetBtn.disabled = disabled;
@@ -74,19 +74,19 @@
 
     addBtn.addEventListener("click", () => {
       time++;
-      updateDisplay();
+      Display();
     });
 
     subBtn.addEventListener("click", () => {
       if (time > 0) {
         time--;
-        updateDisplay();
+        Display();
       }
     });
 
     resetBtn.addEventListener("click", () => {
       time = 0;
-      updateDisplay();
+      Display();
     });
 
     startBtn.addEventListener("click", () => {
@@ -95,18 +95,18 @@
 
         startBtn.textContent = "Stop";
         startBtn.style.backgroundColor = "red";
-        toggleControls(true);
+        Controls(true);
 
         interval = setInterval(() => {
           if (time > 0) {
             time--;
-            updateDisplay();
+            Display();
           } else {
             clearInterval(interval);
             interval = null;
             startBtn.textContent = "Start";
             startBtn.style.backgroundColor = "";
-            toggleControls(false);
+            Controls(false);
           }
         }, 1000);
       } else {
@@ -114,11 +114,11 @@
         interval = null;
         startBtn.textContent = "Start";
         startBtn.style.backgroundColor = "";
-        toggleControls(false);
+        Controls(false);
       }
     });
 
-    updateDisplay();
+    Display();
   </script>
 </body>
 </html>
