@@ -8,8 +8,8 @@ for(let word of textArr){
 }
 
 
-let sortedArr= Object.entries(cloud).sort((a,b) => a[1] - b[1]).slice(0, 5);
-let target = [...sortedArr.map(a => a[0])]
+let sortedArr= Object.entries(cloud).sort((a,b) => b[1] - a[1]).slice(0, 5);
+let target = sortedArr.map(a => a[0])
 
 console.log(target)
 const container = document.getElementById('myWordCloud')
